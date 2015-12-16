@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title of the document</title>
+		<style type="text/css">
+		  .icon {
+		    width:0.9em;
+		    height:1em;
+		    fill:currentColor;
+			transform:translateY(0.15em);
+		  }
+		</style>
+	</head>
+
+	<body>
+		<section id="align-center">
+			<h2>
+				<svg class="icon">
+				  <use xlink:href="assets/img/icons.svg#icon-align-center"></use>
+				</svg>
+				Center
+			</h2>
+			<p>This is a simple usage of SVG with &lt;use&gt;. It will not work in IE without the svgxuse script :(.</p>
+			<pre>
+&lt;svg class=&quot;icon&quot;&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-align-center&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+			</pre>
+		</section>
+	
+		<section id="adjust">
+			<h2>
+				<svg role="img" class="icon">
+				  <title>Adjust This</title>
+				  <use xlink:href="assets/img/icons.svg#icon-adjust"></use>
+				</svg>
+				Adjust
+			</h2>
+			<p>This icon's title will be read alout by screen readers. It will not work in IE without the svgxuse script :(.</p>
+<pre>
+&lt;svg role=&quot;img&quot; class=&quot;icon&quot;&gt;
+  &lt;title&gt;Adjust This&lt;/title&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-adjust&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+</pre>
+		</section>
+		<section id="thumbs-up">
+			<h2>
+				<div class="noscript-enhanced icon" data-xlink="assets/img/icons.svg#icon-thumbs-up" data-src="assets/img/src/png/64/thumbs-up.png" data-alt="Nice">
+					<noscript>
+						<!-- if we can't detect for SVG we don't know if we have it. serving PNG to be safe -->
+						<img "icon" src="assets/img/src/png/64/thumbs-up.png" alt="Nice">
+					</noscript>
+				</div>
+				Nice
+			</h2>
+			<p>This icon will serve a basic PNG image for &lt;noscript&gt; users and be progessively enhanced to a SVG &lt;use&gt; if the SVG feature detection is passed. The markup for this implementation might not be pretty, but it is fully accessible.</p>
+<pre>
+&lt;div class=&quot;noscript-enhanced icon&quot; data-xlink=&quot;assets/img/icons.svg#icon-thumbs-up&quot; data-src=&quot;assets/img/src/png/64/thumbs-up.png&quot; data-alt=&quot;Nice&quot;&gt;
+  &lt;noscript&gt;
+    &lt;!-- if we can&#x27;t detect for SVG we don&#x27;t know if we have it. serving PNG to be safe --&gt;
+    &lt;img &quot;icon&quot; src=&quot;assets/img/src/png/64/thumbs-up.png&quot; alt=&quot;Nice&quot;&gt;
+  &lt;/noscript&gt;
+&lt;/div&gt;
+</pre>
+			<p>becomes:</p>
+<pre>
+&lt;svg role=&quot;img&quot; class=&quot;icon&quot;&gt;
+  &lt;title&gt;Nice&lt;/title&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-thumbs-up&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+</pre>
+			<p>So if JavaScript is disabled we serve a PNG. If JavaScript is enabled we test for SVG and progressively enhance&nbsp;accordingly
+				<span class="noscript-enhanced icon" data-xlink="assets/img/icons.svg#icon-thumbs-up" data-src="assets/img/src/png/64/thumbs-up.png" data-alt="Nice">
+					<noscript>
+						<!-- if we can't detect for SVG we don't know if we have it. serving PNG to be safe -->
+						<img "icon" src="assets/img/src/png/64/thumbs-up.png" alt="Nice">
+					</noscript>
+				</span>
+			</p>
+		</section>	
+		<script>
+		(function(hasSVG){
+			[].forEach.call(document.querySelectorAll('.noscript-enhanced'), function(icon){
+				var alt = icon.getAttribute('data-alt');
+				if(hasSVG) {
+					var svg = createSVG(icon,alt,icon.getAttribute('data-xlink'));
+					icon.outerHTML = svg.outerHTML;
+				} else {
+					var src = icon.getAttribute('data-src');
+					
+					var img = document.createElement('img');
+					img.setAttribute('alt',alt);
+					img.setAttribute('src',src);
+					
+					img.classList.add('icon');
+					
+					icon.outerHTML = img.outerHTML;
+				}
+			});
+			
+			function createSVG(icon, alt, xlinkhref) {
+				var svg = document.createElement('svg');
+				svg.classList.add('icon');
+		
+				var use = document.createElement('use');
+				
+				if(alt) {
+					var title = document.createElement('title');
+					title.innerHTML = alt;
+					svg.appendChild(title);	
+				}
+				
+				use.setAttribute('xlink:href',xlinkhref);
+				svg.appendChild(use);
+				
+				return svg;
+			}
+			
+		})(typeof SVGRect != "undefined"); // simple test for SVG support replace with your own test or Modernizr.svg etc
+		</script>
+		
+		<!-- need this for cross browser support https://github.com/Keyamoon/svgxuse -->
+		<script src="assets/js/vendor/svgxuse.js" defer></script>
+	</body>
+</html>

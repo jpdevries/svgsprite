@@ -1,0 +1,38 @@
+{
+  "name": "svgsprite",
+  "description": "Sample code for Grunting Your Own SVG Icon Sprites Thinkful Course",
+  "main": "gruntfile.js",
+  "authors": [
+    "JP DeVries"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "SVG",
+    "icons",
+    "Grunt"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "http://jpdevries.github.io/svgsprite",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "Font-Awesome-SVG-PNG": "font-awesome-svg-png#~1.1.2"
+  },
+  "exportsOverride": {
+    "Font-Awesome-SVG-PNG": {
+      "svg": "black/svg",
+	  "png": "black/png/128/"
+    }
+  },
+  "dependencies": {
+    "modernizr": "~3.2.0"
+  }
+}
