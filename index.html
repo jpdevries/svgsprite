@@ -46,20 +46,20 @@
 		</section>
 		<section id="thumbs-up">
 			<h2>
-				<div class="noscript-enhanced icon" data-xlink="assets/img/icons.svg#icon-thumbs-up" data-src="assets/img/src/png/64/thumbs-up.png" data-alt="Nice">
+				<span class="noscript-enhanced icon" data-xlink="assets/img/icons.svg#icon-thumbs-up" data-src="assets/img/src/png/thumbs-up.png" data-alt="Nice">
 					<noscript>
 						<!-- if we can't detect for SVG we don't know if we have it. serving PNG to be safe -->
-						<img "icon" src="assets/img/src/png/64/thumbs-up.png" alt="Nice">
+						<img class="icon" src="assets/img/src/png/thumbs-up.png" alt="Nice">
 					</noscript>
-				</div>
+				</span>
 				Nice
 			</h2>
 			<p>This icon will serve a basic PNG image for &lt;noscript&gt; users and be progessively enhanced to a SVG &lt;use&gt; if the SVG feature detection is passed. The markup for this implementation might not be pretty, but it is fully accessible.</p>
 <pre>
-&lt;div class=&quot;noscript-enhanced icon&quot; data-xlink=&quot;assets/img/icons.svg#icon-thumbs-up&quot; data-src=&quot;assets/img/src/png/64/thumbs-up.png&quot; data-alt=&quot;Nice&quot;&gt;
+&lt;div class=&quot;noscript-enhanced icon&quot; data-xlink=&quot;assets/img/icons.svg#icon-thumbs-up&quot; data-src=&quot;assets/img/src/png/thumbs-up.png&quot; data-alt=&quot;Nice&quot;&gt;
   &lt;noscript&gt;
     &lt;!-- if we can&#x27;t detect for SVG we don&#x27;t know if we have it. serving PNG to be safe --&gt;
-    &lt;img &quot;icon&quot; src=&quot;assets/img/src/png/64/thumbs-up.png&quot; alt=&quot;Nice&quot;&gt;
+    &lt;img &quot;icon&quot; src=&quot;assets/img/src/png/thumbs-up.png&quot; alt=&quot;Nice&quot;&gt;
   &lt;/noscript&gt;
 &lt;/div&gt;
 </pre>
@@ -71,15 +71,30 @@
 &lt;/svg&gt;
 </pre>
 			<p>So if JavaScript is disabled we serve a PNG. If JavaScript is enabled we test for SVG and progressively enhance&nbsp;accordingly
-				<span class="noscript-enhanced icon" data-xlink="assets/img/icons.svg#icon-thumbs-up" data-src="assets/img/src/png/64/thumbs-up.png" data-alt="Nice">
+				<span class="noscript-enhanced icon" data-xlink="assets/img/icons.svg#icon-thumbs-up" data-src="assets/img/src/png/thumbs-up.png" data-alt="Nice">
 					<noscript>
 						<!-- if we can't detect for SVG we don't know if we have it. serving PNG to be safe -->
-						<img "icon" src="assets/img/src/png/64/thumbs-up.png" alt="Nice">
+						<img class="icon" src="assets/img/src/png/thumbs-up.png" alt="Nice">
 					</noscript>
 				</span>
 			</p>
 		</section>	
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
 		<script>
+        if (!document.querySelectorAll) { // https://twitter.com/bjankord/status/289443041872318464
+            document.querySelectorAll = function(selector) {
+                var doc = document,
+                    head = doc.documentElement.firstChild,
+                    styleTag = doc.createElement('STYLE');
+                head.appendChild(styleTag);
+                doc.__qsaels = [];
+
+                styleTag.styleSheet.cssText = selector + "{x:expression(document.__qsaels.push(this))}";
+                window.scrollBy(0, 0);
+
+                return doc.__qsaels;
+            }
+        }
 		(function(hasSVG){
 			[].forEach.call(document.querySelectorAll('.noscript-enhanced'), function(icon){
 				var alt = icon.getAttribute('data-alt');
