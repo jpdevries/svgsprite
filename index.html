@@ -83,8 +83,12 @@
 				</span>
 			</p>
 		</section>	
-        <script>if(!'classList' in document.createElement('a')) document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"><\/script>');</script>
-        <script>if (!document.querySelectorAll || !Array.prototype.forEach) document.write('<script src="">assets/js/polyfills.js<\/script>');</script>
+        
+        <!-- test for and load polyfills if necessary -->
+        <script>try {document.createElement('a').classList.add('foo')} catch(e) { document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"><\/script>'); }</script>
+        <script>if (!document.querySelectorAll) document.write('<script src="assets/js/vendor/queryselector.js"><\/script>');</script>
+        <script>if (!Array.prototype.forEach) document.write('<script src="assets/js/vendor/foreach.js"><\/script>');</script>
+        
 		<script>
 		(function(hasSVG){
 			[].forEach.call(document.querySelectorAll('.noscript-enhanced'), function(icon){
@@ -116,7 +120,7 @@
 					title.innerHTML = alt;
 					svg.appendChild(title);	
 				}
-				
+
 				use.setAttribute('xlink:href',xlinkhref);
 				svg.appendChild(use);
 				
