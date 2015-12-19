@@ -34,11 +34,7 @@ module.exports = function(grunt) {
     svgstore: {
       icons: {
         files: {
-          '<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>icons.svg': [
-          	'<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>src/svg/thinkful.svg',
-			'<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>src/svg/adjust.svg',
-			'<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>src/svg/thumbs-up.svg'
-          ]
+          '<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>icons.svg': ['<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>src/svg/*.svg']
         },
         options: {
           formatting : {
