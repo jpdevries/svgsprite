@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title of the document</title>
+		<style type="text/css">
+		  .icon {
+		    width:0.9em;
+		    height:1em;
+		    fill:currentColor;
+			transform:translateY(0.15em);
+		  }
+		</style>
+		
+		<svg xmlns="http://www.w3.org/2000/svg">
+  		  <symbol viewBox="0 0 512 512" id="icon-thinkful">
+  		    <title>thinkful</title>
+  		    <g id="thinkful-masthead">
+  		      <path id="thinkful-Shape" d="M192.1,332.7h38.4V179.6H115.4v-64.2h217.4V77H77v140.6h115.1V332.7L192.1,332.7z" />
+  		      <path id="thinkful-Shape_1_" d="M294.4,179.6v217H192.1V435h140.6V217.6H435V77h-38.4v102.6H294.4L294.4,179.6z" /> </g>
+  		  </symbol>
+		</svg>
+		
+		
+	</head>
+
+	<body>
+		<section id="align-center">
+			<h2>
+				<svg class="icon">
+				  <use xlink:href="#icon-thinkful"></use>
+				</svg>
+				Thinkful
+			</h2>
+			<p>This is a simple usage of SVG with &lt;use&gt;. It will not work in IE without the svgxuse script :(.</p>
+			<pre>
+&lt;svg class=&quot;icon&quot;&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-align-center&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+			</pre>
+		</section>
+        
+        <!-- test for and load polyfills if necessary -->
+        <script>try {document.createElement('a').classList.add('foo')} catch(e) { document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"><\/script>'); }</script>
+        <script>if (!document.querySelectorAll) document.write('<script src="assets/js/vendor/queryselector.js"><\/script>');</script>
+        <script>if (!Array.prototype.forEach) document.write('<script src="assets/js/vendor/foreach.js"><\/script>');</script>
+        
+		<script>
+		(function(hasSVG){
+			[].forEach.call(document.querySelectorAll('.noscript-enhanced'), function(icon){
+				var alt = icon.getAttribute('data-alt');
+				if(hasSVG) {
+					var svg = createSVG(icon,alt,icon.getAttribute('data-xlink'));
+					icon.outerHTML = svg.outerHTML;
+				} else {
+					var src = icon.getAttribute('data-src');
+					
+					var img = document.createElement('img');
+					img.setAttribute('alt',alt);
+					img.setAttribute('src',src);
+					
+					img.classList.add('icon');
+					
+					icon.outerHTML = img.outerHTML;
+				}
+			});
+			
+			function createSVG(icon, alt, xlinkhref) {
+				var svg = document.createElement('svg');
+				svg.classList.add('icon');
+		
+				var use = document.createElement('use');
+				
+				if(alt) {
+					var title = document.createElement('title');
+					title.innerHTML = alt;
+					svg.appendChild(title);	
+				}
+
+				use.setAttribute('xlink:href',xlinkhref);
+				svg.appendChild(use);
+				
+				return svg;
+			}
+			
+		})(typeof SVGRect != "undefined"); // simple test for SVG support replace with your own test or Modernizr.svg etc
+		</script>
+		
+		<!-- need this for cross browser support https://github.com/Keyamoon/svgxuse -->
+		<script src="assets/js/vendor/svgxuse.js" defer></script>
+	</body>
+</html>
