@@ -31,7 +31,7 @@
 		<section id="vader">
 			<h2>
 				<svg role="img" class="icon">
-				  <title>Adjust This</title>
+				  <title>Darth Vader</title>
 				  <use xlink:href="assets/img/icons.svg#icon-vader"></use>
 				</svg>
 				Vader
@@ -43,6 +43,28 @@
   &lt;use xlink:href=&quot;assets/img/icons.svg#icon-adjust&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;
 </pre>
+		</section>
+		<section id="saber">
+			<h2>
+				<svg class="icon">
+				  <use xlink:href="assets/img/icons.svg#icon-saber"></use>
+				</svg>
+				Light Saber
+			</h2>
+			<p>Multiple colors with SVG use! See also <a href="http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/">Styling SVG &lt;use&gt; Content with&nbsp;CSS</a>.</p>
+			<pre>
+&lt;style type=&quot;text/css&qout;&gt;
+	.icon {
+		width:0.9em;
+		height:1em;
+		fill:currentColor;
+		transform:translateY(0.15em);
+	}
+&lt;/style&gt;
+&lt;svg class=&qout;icon&qout;&gt;
+	&lt;use xlink:href=&qout;assets/img/icons.svg#icon-saber&qout;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+			</pre>
 		</section>
 		<section id="thumbs-up">
 			<h2>
@@ -89,20 +111,6 @@
 			color:red;
 		}
 		</style>
-		<section id="saber">
-			<h2>
-				<svg class="icon">
-				  <use xlink:href="assets/img/icons.svg#icon-saber"></use>
-				</svg>
-				Light Saber
-			</h2>
-			<p>Multiple colors with SVG use! See also <a href="http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/">Styling SVG &lt;use&gt; Content with&nbsp;CSS</a>.</p>
-			<pre>
-&lt;svg class=&quot;icon&quot;&gt;
-  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-align-center&quot;&gt;&lt;/use&gt;
-&lt;/svg&gt;
-			</pre>
-		</section>
 
         <!-- test for and load polyfills if necessary -->
         <script>try {document.createElement('a').classList.add('foo')} catch(e) { document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"><\/script>'); }</script>
