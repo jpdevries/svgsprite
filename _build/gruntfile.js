@@ -29,6 +29,12 @@ module.exports = function(grunt) {
         dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>src/png/',
         expand: true,
         flatten: true
+      },
+      'custom-starwars':{
+        src: './custom/starwars/*.svg',
+        dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.img %>src/svg/',
+        expand: true,
+        flatten: true
       }
     },
     svgstore: {
@@ -57,5 +63,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svgstore');
 
   grunt.registerTask('prebuild', ['bower', 'copy', 'svgstore']);
-  
+
 };

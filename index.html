@@ -27,14 +27,14 @@
 &lt;/svg&gt;
 			</pre>
 		</section>
-	
-		<section id="adjust">
+
+		<section id="vader">
 			<h2>
 				<svg role="img" class="icon">
 				  <title>Adjust This</title>
-				  <use xlink:href="assets/img/icons.svg#icon-adjust"></use>
+				  <use xlink:href="assets/img/icons.svg#icon-vader"></use>
 				</svg>
-				Adjust
+				Vader
 			</h2>
 			<p>This icon's title will be read alout by screen readers. It will not work in IE without the svgxuse script :(.</p>
 <pre>
@@ -82,13 +82,33 @@
 					</noscript>
 				</span>
 			</p>
-		</section>	
-        
+		</section>
+		<style type="text/css">
+		#saber .icon {
+			fill:rgb(8,8,8);
+			color:red;
+		}
+		</style>
+		<section id="saber">
+			<h2>
+				<svg class="icon">
+				  <use xlink:href="assets/img/icons.svg#icon-saber"></use>
+				</svg>
+				Light Saber
+			</h2>
+			<p>Multiple colors with SVG use! See also <a href="http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/">Styling SVG &lt;use&gt; Content with&nbsp;CSS</a>.</p>
+			<pre>
+&lt;svg class=&quot;icon&quot;&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-align-center&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+			</pre>
+		</section>
+
         <!-- test for and load polyfills if necessary -->
         <script>try {document.createElement('a').classList.add('foo')} catch(e) { document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"><\/script>'); }</script>
         <script>if (!document.querySelectorAll) document.write('<script src="assets/js/vendor/queryselector.js"><\/script>');</script>
         <script>if (!Array.prototype.forEach) document.write('<script src="assets/js/vendor/foreach.js"><\/script>');</script>
-        
+
 		<script>
 		(function(hasSVG){
 			[].forEach.call(document.querySelectorAll('.noscript-enhanced'), function(icon){
@@ -98,38 +118,38 @@
 					icon.outerHTML = svg.outerHTML;
 				} else {
 					var src = icon.getAttribute('data-src');
-					
+
 					var img = document.createElement('img');
 					img.setAttribute('alt',alt);
 					img.setAttribute('src',src);
-					
+
 					img.classList.add('icon');
-					
+
 					icon.outerHTML = img.outerHTML;
 				}
 			});
-			
+
 			function createSVG(icon, alt, xlinkhref) {
 				var svg = document.createElement('svg');
 				svg.classList.add('icon');
-		
+
 				var use = document.createElement('use');
-				
+
 				if(alt) {
 					var title = document.createElement('title');
 					title.innerHTML = alt;
-					svg.appendChild(title);	
+					svg.appendChild(title);
 				}
 
 				use.setAttribute('xlink:href',xlinkhref);
 				svg.appendChild(use);
-				
+
 				return svg;
 			}
-			
+
 		})(typeof SVGRect != "undefined"); // simple test for SVG support replace with your own test or Modernizr.svg etc
 		</script>
-		
+
 		<!-- need this for cross browser support https://github.com/Keyamoon/svgxuse -->
 		<script src="assets/js/vendor/svgxuse.js" defer></script>
 	</body>
