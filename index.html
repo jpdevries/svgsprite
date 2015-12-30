@@ -7,13 +7,35 @@
 		    width:0.9em;
 		    height:1em;
 		    fill:currentColor;
-			transform:translateY(0.15em);
+		    transform:translateY(0.15em);
 		  }
 		</style>
 	</head>
 
 	<body>
-		<section id="align-center">
+
+		<svg style="display: none">
+			<symbol id="inline-r2d2" viewBox="0 0 2048 2048">
+				<g>
+					<!-- legs -->
+					<path fill="#e8e8e8" style="fill: var(--tertiary-color, #e8e8e8)" d="M1731.2,1554.4V847.1c0-65.1-52.8-117.8-117.8-117.8h-117.9v117.8v117.8v589.4l-117.8,294.7h471.5L1731.2,1554.4z"/>
+					<path fill="#e8e8e8" style="fill: var(--tertiary-color, #e8e8e8)" d="M552.3,965V847.2V729.4H434.5c-65.1,0-117.8,52.8-117.8,117.8v707.3l-117.8,294.7h471.5l-118.1-294.8V965z"/>
+					<!-- head -->
+					<path fill="#0000c9" style="fill: var(--primary-color, #0000c9)" d="M1434.5,670.3h1.9v-59c0-227.8-184.8-412.5-412.6-412.5S611.2,383.5,611.2,611.3v59h1.9H1434.5z M1259.6,493.5
+						c32.6,0,58.9,26.4,58.9,58.9c0,32.5-26.4,58.9-58.9,58.9c-32.5,0-58.9-26.4-58.9-58.9C1200.7,519.9,1227,493.5,1259.6,493.5z
+						 M1023.9,287.2c65.1,0,117.8,52.8,117.8,117.8s-52.8,117.8-117.8,117.8c-65.1,0-117.8-52.8-117.8-117.8S958.8,287.2,1023.9,287.2z"
+						/>
+				  <!-- body -->
+					<path fill="white" style="fill: var(--secondary-color, white)" d="M1436.5,729.3H611.2v825.1l117.8,117.8h589.4l117.8-117.8V729.3H1436.5z M1200.7,1200.8H847c-32.6,0-58.9-26.4-58.9-58.9
+						c0-32.5,26.4-58.9,58.9-58.9h353.6c32.6,0,58.9,26.4,58.9,58.9C1259.5,1174.4,1233.2,1200.8,1200.7,1200.8z M1200.7,965H847
+						c-32.6,0-58.9-26.4-58.9-58.9c0-32.5,26.4-58.9,58.9-58.9h353.6c32.6,0,58.9,26.4,58.9,58.9C1259.6,938.6,1233.2,965,1200.7,965z"
+						/>
+					<path fill="#FD0101" style="fill: var(--danger-color, #FD0101)" d="M1318.5,552.4c0-32.5-26.3-58.9-58.9-58.9s-58.9,26.4-58.9,58.9s26.4,58.9,58.9,58.9S1318.5,584.9,1318.5,552.4
+							z"/>
+				</g>
+			</symbol>
+		</svg>
+		<section id="thinkful">
 			<h2>
 				<svg class="icon">
 				  <use xlink:href="assets/img/icons.svg#icon-thinkful"></use>
@@ -40,30 +62,105 @@
 <pre>
 &lt;svg role=&quot;img&quot; class=&quot;icon&quot;&gt;
   &lt;title&gt;Darth Vader&lt;/title&gt;
-  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-adjust&quot;&gt;&lt;/use&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-vader&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;
 </pre>
 		</section>
 		<section id="saber">
-			<h2>
+			<h2>Light Saber</h2>
+			<div style="font-size:8em;line-height:auto">
 				<svg class="icon">
 				  <use xlink:href="assets/img/icons.svg#icon-saber"></use>
 				</svg>
-				Light Saber
-			</h2>
+				<svg class="icon" style="color:green; transform:translateX(-100%) rotateY(-180deg) translateY(16%)">
+				  <use xlink:href="assets/img/icons.svg#icon-saber"></use>
+				</svg>
+			</div>
 			<p>Multiple colors with SVG use! See also <a href="http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/">Styling SVG &lt;use&gt; Content with&nbsp;CSS</a>.</p>
 			<pre>
-&lt;style type=&quot;text/css&qout;&gt;
-	.icon {
-		width:0.9em;
-		height:1em;
-		fill:currentColor;
-		transform:translateY(0.15em);
-	}
+&lt;style type=&quot;text/css&quot;&gt;
+  .icon {
+    width:0.9em;
+    height:1em;
+    fill:currentColor;
+    transform:translateY(0.15em);
+  }
 &lt;/style&gt;
-&lt;svg class=&qout;icon&qout;&gt;
-	&lt;use xlink:href=&qout;assets/img/icons.svg#icon-saber&qout;&gt;&lt;/use&gt;
+&lt;svg class=&quot;icon&quot;&gt;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-saber&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;
+&lt;svg class=&quot;icon&quot;&gt; style=&quot;color:green; transform:translateX(-100%) rotateY(-180deg) translateY(16%)&quot;
+  &lt;use xlink:href=&quot;assets/img/icons.svg#icon-saber&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+			</pre>
+		</section>
+		<section id="multiple-colors">
+			<style type="text/css">
+			#robot-1 {
+			  --primary-color: #0000c9;
+			  /* blue */
+			  --secondary-color: white;
+			  --tertiary-color: #e8e8e8;
+			  --danger-color: orange;
+			}
+			#robot-1:hover {
+			  --primary-color: #000096;
+			  --danger-color: red;
+			}
+
+			#robot-2 {
+			  --primary-color: #fa8c17;
+			  /* orange */
+			  --secondary-color: white;
+			  --tertiary-color: #e8e8e8;
+			  --danger-color: red;
+			}
+			#robot-2:hover {
+			  --primary-color: #fa962b;
+			  --danger-color: #e00000;
+			}
+			</style>
+			<h2>Multiple Colors with Inline&nbsp;SVG and CSS&nbsp;Variables</h2>
+			<div style="font-size:5em;background:#bebebe">
+				<svg>
+					<title>R2D2</title>
+				  <use xlink:href="#inline-r2d2" id="robot-1" />
+				</svg>
+				<svg>
+					<title>R2D2 (orange)</title>
+				  <use xlink:href="#inline-r2d2" id="robot-2" />
+				</svg>
+			</div>
+			<p><a href="http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/">Using CSS Variables</a> you can style SVG Graphics with custom properties. This allows for you to use multiple colors in the instances of your reusable SVG graphics. <a href="http://caniuse.com/#feat=css-variables">Browser support is grim</a> and <a href="http://tympanus.net/codrops/2015/07/16/styling-svg-use-content-css/comment-page-1/#comment-468568">apparently you must inline your SVG directly in the document</a> as well.</p>
+			<p>Have a look at the <a href="http://codepen.io/jpdevries/pen/MKbrrX?editors=110">the example codepen</a> with the full source.</p>
+			<figure>
+				<img alt="" src="http://j4p.us/1g0z3g240C32/Screen%20Shot%202015-12-29%20at%204.34.46%20PM.png" />
+				<figcaption>Screenshot of Multiple Colors in Firefox 42.0</figcaption>
+			</figure>
+
+			<pre>
+&lt;style type="text/css"&gt;
+#robot-1 {
+  --primary-color: #0000c9; /* blue */
+  --secondary-color: white;
+  --tertiary-color: #e8e8e8;
+}
+#robot-2 {
+  --primary-color: #fa8c17; /* orange */
+  --secondary-color: white;
+  --tertiary-color: #e8e8e8;
+}
+&lt;/style&gt;
+&lt;div style="font-size:5em;background:#bebebe"&gt;
+  &lt;svg&gt;
+    &lt;title>R2D2&lt;/title&gt;
+    &lt;use xlink:href="#inline-r2d2" id="robot-1" /&gt;
+  &lt;/svg&gt;
+  &lt;svg&gt;
+    &lt;title&gt;R2D2 (other color)&lt;/title&gt;
+    &lt;use xlink:href="#inline-r2d2" id="robot-2" /&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;
 			</pre>
 		</section>
 		<section id="thumbs-up">
